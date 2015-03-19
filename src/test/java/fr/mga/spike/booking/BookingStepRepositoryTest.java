@@ -9,22 +9,16 @@ import org.fest.assertions.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.cassandra.config.CassandraClusterFactoryBean;
-import org.springframework.data.cassandra.config.CassandraSessionFactoryBean;
-import org.springframework.data.cassandra.config.SchemaAction;
-import org.springframework.data.cassandra.convert.MappingCassandraConverter;
 import org.springframework.data.cassandra.core.CassandraTemplate;
-import org.springframework.data.cassandra.mapping.BasicCassandraMappingContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { RepositoryConfiguration.class })
-@TestExecutionListeners({ CassandraUnitTestExecutionListener.class})
+@TestExecutionListeners({ CassandraUnitTestExecutionListener.class })
 @EmbeddedCassandra(configuration = "cassandra.yaml", port = 9042)
-@CassandraDataSet(value = {"bookingstep.cql"}, keyspace = "booking")
+@CassandraDataSet(value = { "bookingstep.cql" }, keyspace = "booking")
 public class BookingStepRepositoryTest {
 
     private BookingStepRepository bookingStepRepository;
